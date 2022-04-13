@@ -26,6 +26,7 @@ pipeline {
 					echo $WORKSPACE/StartApp.pid
 									
 				}
+		}
 		stage('Run Tests'){
 				steps{
 					sh 'yarn cypress'
