@@ -22,8 +22,8 @@ pipeline {
 		stage('StartApp') {
 				steps {
 					
-					sh 'yarn start & echo $! > $WORKSPACE/StartApp.pid; wait -n $(cat $WORKSPACE/StartApp.pid) || true'
-					echo $WORKSPACE/StartApp.pid
+					sh 'yarn start & | awk {print $1}'
+					
 									
 				}
 		}
