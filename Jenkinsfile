@@ -3,7 +3,7 @@ pipeline {
 	stages {
 		stage('Clone Git Repo'){
 				steps{
-					git 'https://github.com/IftikharZulfiqar/darkskyweather.git',brnach 'pipeline' 
+					git 'https://github.com/IftikharZulfiqar/darkskyweather.git'
 		    }
 		}
 		stage('Install Dependencies'){
