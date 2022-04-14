@@ -26,6 +26,7 @@ pipeline {
 		}
 		stage('build project') {
 				steps {
+					sh 'yarn upgrade'
 					sh 'yarn build'									
 				}
         }
