@@ -28,7 +28,7 @@ pipeline {
 		}
 		stage('Run Tests'){
 				steps{
-					sh 'yarn cypress run --browser chrome '
+					sh 'yarn cypress run --browser chrome --config-file cypress/integration/*.js'
 				}
 		}		
 	}
