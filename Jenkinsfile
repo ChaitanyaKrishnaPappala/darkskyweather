@@ -11,9 +11,15 @@ pipeline {
 				steps{
 					sh 'npm install'
 					sh 'npm install --global yarn'
-					sh 'yarn install'
+					
 				}
 		}
+		stage('build project') {
+				steps {
+					sh 'yarn install --ignore-engines'
+					sh 'yarn upgrade'
+					sh 'yarn build'									
+				}
 		
 		stage('StartApp') {
 				steps {					
@@ -25,12 +31,7 @@ pipeline {
 					sh 'yarn cypress run -b chrome -c cypress/integration/*.js'
 				}
 		}
-		stage('build project') {
-				steps {
-					sh 'yarn install --ignore-engines'
-					sh 'yarn upgrade'
-					sh 'yarn build'									
-				}
+		
         }
 		stage('deploy'){
 				steps{
