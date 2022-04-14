@@ -8,28 +8,29 @@ pipeline {
 		}
 		stage('Install Dependencies'){
 				steps{
-					
-					echo "Installion"
+					sh 'npm install'
+					sh 'npm install --global yarn'
 				}
 		}
 		stage('build project') {
 				steps {
-					echo " Build"
-									
+					sh 'yarn install'									
 				}
         }
 		stage('StartApp') {
-				steps {
-					
-					sh 'yarn start &'
-					
-									
+				steps {					
+					sh 'yarn start &'	
 				}
 		}
 		stage('Run Tests'){
 				steps{
 					sh 'yarn cypress run --browser chrome --config-file cypress/integration/*.js'
 				}
-		}		
+		}
+		stage('deploy'){
+				steps{
+					echo "Deployment"
+				}
+		}	
 	}
 }
