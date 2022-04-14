@@ -28,7 +28,7 @@ pipeline {
 		}
 		stage('Run Tests'){
 				steps{
-					sh 'yarn cypress'
+					sh 'yarn cypress run --browser chrome '
 				}
 		}		
 	}
