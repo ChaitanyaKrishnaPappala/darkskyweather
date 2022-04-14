@@ -20,7 +20,7 @@ pipeline {
 					sh 'yarn upgrade'
 					sh 'yarn build'									
 				}
-		
+		}
 		stage('StartApp') {
 				steps {					
 					sh 'yarn start &'	
@@ -30,9 +30,8 @@ pipeline {
 				steps{
 					sh 'yarn cypress run -b chrome -c cypress/integration/*.js'
 				}
-		}
-		
-        }
+		}	
+        
 		stage('deploy'){
 				steps{
 					echo "Deployment"
