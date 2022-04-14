@@ -10,13 +10,10 @@ pipeline {
 				steps{
 					sh 'npm install'
 					sh 'npm install --global yarn'
+					sh 'yarn install'
 				}
 		}
-		stage('build project') {
-				steps {
-					sh 'yarn install'									
-				}
-        }
+		
 		stage('StartApp') {
 				steps {					
 					sh 'yarn start &'	
@@ -27,9 +24,16 @@ pipeline {
 					sh 'yarn cypress run -b chrome -c cypress/integration/*.js'
 				}
 		}
+		stage('build project') {
+				steps {
+					sh 'yarn build'									
+				}
+        }
 		stage('deploy'){
 				steps{
 					echo "Deployment"
+					sh 'rm -rf *.tar.gz'
+					sh 'tar cxf cypressPipeline2-$BUILD_NUMBER.tar.gz'
 				}
 		}	
 	}
