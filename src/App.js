@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css'
 toast.configure()
 
 function App ({coords}) {
+  console.log('🚀 ~ file: App.js ~ line 12 ~ App ~ coords', coords)
   return (
     <div className='App'>
       <header className='App-header'>
