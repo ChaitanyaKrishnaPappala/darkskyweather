@@ -33,7 +33,7 @@ pipeline {
 		stage('deploy'){
 				steps{
 					echo "Deployment"					
-					sh 'tar cxf cypressPipeline2-$BUILD_NUMBER.tar.gz'
+					sh 'tar cvxf cypressPipeline2-$BUILD_NUMBER.tar.gz'
 				}
 		}	
 	}
