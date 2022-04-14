@@ -9,20 +9,19 @@ pipeline {
 		stage('Install Dependencies'){
 				steps{
 					
-					sh 'npm install'
-					sh 'npm install --global yarn'
+					echo "Installion"
 				}
 		}
 		stage('build project') {
 				steps {
-					sh 'yarn install'
+					echo " Build"
 									
 				}
         }
 		stage('StartApp') {
 				steps {
 					
-					sh 'yarn start & | awk {print $1}'
+					sh 'yarn start &'
 					
 									
 				}
