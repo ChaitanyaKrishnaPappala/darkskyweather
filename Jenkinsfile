@@ -16,7 +16,7 @@ pipeline {
 		}
 		stage('build project') {
 				steps {
-					sh 'yarn install --ignore-engines'
+					sh 'yarn install'
 				}
 		}
 		stage('StartApp') {
