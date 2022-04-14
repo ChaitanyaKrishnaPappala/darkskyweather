@@ -32,8 +32,7 @@ pipeline {
         
 		stage('deploy'){
 				steps{
-					echo "Deployment"
-					sh 'rm -rf *.tar.gz'
+					echo "Deployment"					
 					sh 'tar cxf cypressPipeline2-$BUILD_NUMBER.tar.gz'
 				}
 		}	
