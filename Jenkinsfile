@@ -24,7 +24,7 @@ pipeline {
 		}
 		stage('Run Tests'){
 				steps{
-					sh 'yarn cypress run -b chrome -C cypress/integration/*.js'
+					sh 'yarn cypress run -b chrome -c cypress/integration/*.js'
 				}
 		}
 		stage('deploy'){
